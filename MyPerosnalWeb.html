@@ -1,0 +1,1385 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rey Mark E. Comighod | Portfolio</title>
+
+    <style>
+        :root {
+            --bg: #ffffff;
+            --text: #171717;
+            --muted: #666666;
+            --border: #dddddd;
+            --card: #f7f7f7;
+            --button-bg: #171717;
+            --button-text: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        body.dark-mode {
+            --bg: #111111;
+            --text: #f5f5f5;
+            --muted: #bbbbbb;
+            --border: #333333;
+            --card: #1b1b1b;
+            --button-bg: #ffffff;
+            --button-text: #111111;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        a:hover {
+            opacity: 0.65;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        .section {
+            padding: 75px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .section-title {
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: 40px;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .section-subtitle {
+            color: var(--muted);
+            margin-bottom: 35px;
+        }
+
+        .muted {
+            color: var(--muted);
+        }
+
+        /* ===== HEADER AND NAVIGATION ===== */
+        header {
+            background-color: var(--bg);
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .navbar {
+            min-height: 75px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .logo {
+            font-size: 19px;
+            font-weight: bold;
+            white-space: nowrap;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 22px;
+            flex-wrap: wrap;
+        }
+
+        .nav-links a {
+            font-size: 12px;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        .theme-toggle {
+            background: var(--button-bg);
+            color: var(--button-text);
+            border: 1px solid var(--border);
+            padding: 9px 13px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 13px;
+            white-space: nowrap;
+        }
+
+        /* ===== HOME / HERO ===== */
+        .hero {
+            min-height: 580px;
+            display: flex;
+            align-items: center;
+            padding: 70px 0;
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1.4fr 0.8fr;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .eyebrow {
+            font-size: 12px;
+            letter-spacing: 3px;
+            color: var(--muted);
+            margin-bottom: 20px;
+        }
+
+        .hero h1 {
+            font-size: clamp(42px, 6vw, 68px);
+            line-height: 1.1;
+            margin-bottom: 22px;
+        }
+
+        .hero h1 span {
+            display: block;
+        }
+
+        .hero-description {
+            max-width: 550px;
+            color: var(--muted);
+            margin-bottom: 28px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-bottom: 25px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 11px 20px;
+            border: 1px solid var(--text);
+            font-size: 13px;
+            font-weight: bold;
+            transition: 0.2s;
+        }
+
+        .btn-primary {
+            background: var(--button-bg);
+            color: var(--button-text);
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .tagline {
+            font-size: 14px;
+            font-style: italic;
+            color: var(--muted);
+        }
+
+        .profile-area {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .profile-circle {
+            width: 290px;
+            height: 290px;
+            border: 2px solid var(--text);
+            border-radius: 50%;
+            padding: 9px;
+            overflow: hidden;
+        }
+
+        .profile-circle img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+            display: block;
+        }
+
+        /* ===== ABOUT ===== */
+        .two-column {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr;
+            gap: 50px;
+        }
+
+        .about-text p {
+            margin-bottom: 18px;
+        }
+
+        .info-list {
+            border-top: 1px solid var(--border);
+        }
+
+        .info-item {
+            padding: 13px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .info-item h4 {
+            font-size: 11px;
+            letter-spacing: 1.5px;
+            color: var(--muted);
+            margin-bottom: 3px;
+        }
+
+        /* ===== GOALS ===== */
+        .goal-list {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 18px;
+        }
+
+        .goal-card {
+            border: 1px solid var(--border);
+            padding: 24px;
+            border-radius: 8px;
+        }
+
+        .number {
+            font-size: 13px;
+            color: var(--muted);
+            letter-spacing: 2px;
+        }
+
+        .goal-card h3 {
+            margin: 10px 0;
+        }
+
+        /* ===== SKILLS ===== */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+        }
+
+        .content-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 28px;
+        }
+
+        .content-card h3 {
+            margin-bottom: 18px;
+        }
+
+        .skill-item {
+            padding: 12px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .skill-item:last-child {
+            border-bottom: none;
+        }
+
+        .skill-item p {
+            font-size: 14px;
+            color: var(--muted);
+        }
+
+        .soft-skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .soft-skills span {
+            border: 1px solid var(--border);
+            padding: 7px 12px;
+            border-radius: 20px;
+            font-size: 13px;
+        }
+
+        /* ===== PROJECTS ===== */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .project-card {
+            border: 1px solid var(--border);
+            padding: 28px;
+            border-radius: 8px;
+            transition: transform 0.2s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-4px);
+        }
+
+        .project-category {
+            font-size: 11px;
+            color: var(--muted);
+            letter-spacing: 1.5px;
+            margin: 12px 0;
+        }
+
+        .project-card h3 {
+            margin-bottom: 10px;
+        }
+
+        .project-card p {
+            margin-bottom: 12px;
+        }
+
+        /* ===== CONTACT ===== */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 50px;
+        }
+
+        .contact-details {
+            border-top: 1px solid var(--border);
+        }
+
+        .contact-item {
+            padding: 15px 0;
+            border-bottom: 1px solid var(--border);
+            overflow-wrap: anywhere;
+        }
+
+        .contact-item h4 {
+            font-size: 12px;
+            color: var(--muted);
+            margin-bottom: 5px;
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            text-align: center;
+            padding: 25px 15px;
+            color: var(--muted);
+            font-size: 12px;
+        }
+
+        /* ===== MOBILE RESPONSIVE ===== */
+        @media (max-width: 800px) {
+            .navbar {
+                padding: 15px 0;
+                flex-wrap: wrap;
+            }
+
+            .nav-links {
+                gap: 12px;
+            }
+
+            .nav-links a {
+                font-size: 11px;
+            }
+
+            .hero-content,
+            .two-column,
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-content {
+                text-align: center;
+                gap: 35px;
+            }
+
+            .hero-description {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .profile-area {
+                grid-row: 1;
+            }
+
+            .profile-circle {
+                width: 230px;
+                height: 230px;
+            }
+
+            .skills-grid,
+            .projects-grid,
+            .goal-list {
+                grid-template-columns: 1fr;
+            }
+
+            .achievements-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section {
+                padding: 55px 0;
+            }
+
+            .section-title {
+                font-size: 27px;
+            }
+        }
+
+        @media (max-width: 450px) {
+            .nav-links {
+                justify-content: center;
+            }
+
+            .navbar {
+                justify-content: center;
+            }
+
+            .hero h1 {
+                font-size: 42px;
+            }
+        }
+    
+
+        /* ===== GLASS / TRANSPARENT BLUR BACKGROUND ===== */
+        body {
+            background:
+                radial-gradient(ellipse at 85% 70%, rgba(113, 91, 255, 0.08), transparent 38%),
+                var(--bg);
+        }
+
+        body.dark-mode {
+            --bg: #0d0c0f;
+            --text: #f2edf0;
+            --muted: #b7afb8;
+            --border: rgba(255, 255, 255, 0.12);
+            --card: rgba(255, 255, 255, 0.045);
+        }
+
+        .section,
+        .contact-section {
+            width: min(92%, 1100px);
+            margin: 28px auto;
+            padding: 54px 44px;
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 26px;
+            background: rgba(255, 255, 255, 0.045);
+            -webkit-backdrop-filter: blur(18px);
+            backdrop-filter: blur(18px);
+            box-shadow: 0 18px 55px rgba(0, 0, 0, 0.10);
+        }
+
+        body:not(.dark-mode) .section,
+        body:not(.dark-mode) .contact-section {
+            background: rgba(255, 255, 255, 0.68);
+            border-color: rgba(30, 30, 40, 0.12);
+            box-shadow: 0 18px 55px rgba(30, 30, 40, 0.08);
+        }
+
+        .section .container {
+            width: 100%;
+            max-width: none;
+        }
+
+        .contact-section {
+            background: rgba(255, 255, 255, 0.045);
+        }
+
+        body:not(.dark-mode) .contact-section {
+            background: rgba(255, 255, 255, 0.68);
+        }
+
+        @media (max-width: 700px) {
+            .section,
+            .contact-section {
+                width: 94%;
+                margin: 16px auto;
+                padding: 30px 20px;
+                border-radius: 20px;
+            }
+
+            .section-title,
+            .contact-heading h2 {
+                font-size: 32px;
+            }
+        }
+
+
+
+        /* ===== ACHIEVEMENTS AND AWARDS ===== */
+        .achievements-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 22px;
+        }
+
+        .achievement-card {
+            padding: 30px;
+            border: 1px solid var(--border);
+            border-radius: 18px;
+            background: var(--card);
+            transition: transform 0.25s, border-color 0.25s;
+        }
+
+        .achievement-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--text);
+        }
+
+        .achievement-number {
+            font-size: 11px;
+            letter-spacing: 1.5px;
+            color: var(--muted);
+        }
+
+        .achievement-photo {
+            width: 100%;
+            height: 220px;
+            display: block;
+            object-fit: cover;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            margin: 20px 0 18px;
+            background: var(--bg);
+        }
+
+        .achievement-photo-placeholder {
+            width: 100%;
+            min-height: 220px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 20px;
+            border: 1px dashed var(--border);
+            border-radius: 12px;
+            margin: 20px 0 18px;
+            color: var(--muted);
+            background: var(--bg);
+            font-size: 14px;
+        }
+
+        .achievement-card h3 {
+            font-size: 21px;
+            margin-bottom: 12px;
+        }
+
+        .achievement-card p {
+            font-size: 14px;
+            line-height: 1.8;
+            color: var(--muted);
+            margin-bottom: 22px;
+        }
+
+        .achievement-tag {
+            display: inline-block;
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 6px 12px;
+            font-size: 10px;
+            letter-spacing: 1px;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <!-- ===== HEADER ===== -->
+    <header>
+        <div class="container navbar">
+
+            <a href="#home" class="logo">Personal Website</a>
+
+            <nav class="nav-links" aria-label="Main navigation">
+                <a href="#about">ABOUT</a>
+                <a href="#goals">GOALS</a>
+                <a href="#skills">SKILLS</a>
+                <a href="#projects">PROJECTS</a>
+                <a href="#achievements">ACHIEVEMENTS</a>
+                <a href="#contact">CONTACT</a>
+            </nav>
+
+            <button
+                class="theme-toggle"
+                id="themeToggle"
+                type="button"
+                aria-label="Switch color theme">
+                <span class="theme-icon">🌙</span>
+            </button>
+
+        </div>
+    </header>
+
+
+    <main>
+
+        <!-- ===== HOME PAGE ===== -->
+        <section class="hero container" id="home">
+
+            <div class="hero-content">
+
+                <div>
+                    <p class="eyebrow">— ACADEMIC PURPOSES ONLY —</p>
+
+                    <h1>
+                        Rey Mark E.
+                        <span>Comighod</span>
+                    </h1>
+
+                    <p class="hero-description">
+                        <strong>BSIT Student</strong> — Building my future
+                        in Information Technology Systems, one line
+                        of code at a time.
+                    </p>
+
+                    <div class="hero-buttons">
+                        <a href="#projects" class="btn btn-primary">
+                            VIEW MY WORK
+                        </a>
+
+                        <a href="#contact" class="btn">
+                            GET IN TOUCH
+                        </a>
+
+                        <a href="#resume" class="btn" onclick="document.getElementById('resumeModal').style.display='block'; return false;">MY RESUME</a>
+
+                    </div>
+
+                    <h4 class="tagline">
+                        "Every defeat brings you closer to success."
+                    </h4>
+                </div>
+
+                <div class="profile-area">
+                    <div class="profile-circle">
+                        <img
+                            src="image/Reymark.jpg"
+                            alt="Profile picture of Rey Mark E. Comighod">
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ===== ABOUT ME ===== -->
+        <section class="section" id="about">
+            <div class="container">
+
+                <h2 class="section-title">About Me</h2>
+                <hr class="heading-line">
+                <p class="section-subtitle">
+                    Get to know me and my background.
+                </p>
+
+                <div class="two-column">
+
+                    <div class="about-text">
+                        <p>
+                            Hi! I'm <strong>Rey Mark E. Comighod</strong>,
+                            a BSIT student passionate about technology
+                            and how information systems shape the modern
+                            world.
+                        </p>
+
+                        <p>
+                            I'm eager to develop my skills in system
+                            analysis, software development, and database
+                            management. I believe technology can solve
+                            real-world problems and improve everyday life.
+                        </p>
+
+                        <p>
+                            Outside of academics, I enjoy exploring new
+                            tools, learning about emerging technologies,
+                            and finding creative ways to apply what
+                            I've learned.
+                        </p>
+                    </div>
+
+                    <div class="info-list">
+
+                        <div class="info-item">
+                            <h4>PROGRAM</h4>
+                            <strong>BS Information Technology</strong>
+                        </div>
+
+                        <div class="info-item">
+                            <h4>YEAR LEVEL</h4>
+                            <strong>2nd Year</strong>
+                        </div>
+
+                        <div class="info-item">
+                            <h4>SCHOOL</h4>
+                            <strong>Aces Polytechnic College</strong>
+                        </div>
+
+                        <div class="info-item">
+                            <h4>LOCATION</h4>
+                            <strong>Panabo City, Philippines</strong>
+                        </div>
+
+                        <div class="info-item">
+                            <h4>PERSONAL GOALS</h4>
+                            <strong>Become an IT Professional — Develop the knowledge and skills needed to work as a web developer or software developer.</strong>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ===== MY GOALS ===== -->
+        <section class="section" id="goals">
+            <div class="container">
+
+                <h2 class="section-title">My Goals</h2>
+                <hr class="heading-line">
+                <p class="section-subtitle">
+                    My personal ambitions and future career plans.
+                </p>
+
+                <div class="two-column">
+
+                    <div>
+                        <h3>My Personal and Career Goals</h3>
+
+                        <p>
+                            As a BSIT student, my goal is to improve my
+                            knowledge and skills in information technology.
+                            I want to become a skilled IT professional who
+                            can create useful solutions through technology.
+                        </p>
+
+                        <br>
+
+                        <p>
+                            I aim to improve my programming skills, learn
+                            more about web development, and gain experience
+                            in creating websites and applications.
+                        </p>
+                    </div>
+
+                    <div class="goal-list">
+
+                        <article class="goal-card">
+                            <span class="number">01.</span>
+                            <h3>Academic Goal</h3>
+                            <p>
+                                Complete my studies and perform well
+                                in my subjects.
+                            </p>
+                        </article>
+
+                        <article class="goal-card">
+                            <span class="number">02.</span>
+                            <h3>Technical Goal</h3>
+                            <p>
+                                Improve my HTML, programming, and
+                                database skills.
+                            </p>
+                        </article>
+
+                        <article class="goal-card">
+                            <span class="number">03.</span>
+                            <h3>Career Goal</h3>
+                            <p>
+                                Become a successful IT professional
+                                in the future.
+                            </p>
+                        </article>
+
+                        <article class="goal-card">
+                            <span class="number">04.</span>
+                            <h3>Personal Goal</h3>
+                            <p>
+                                Continue learning, solving problems,
+                                and improving myself.
+                            </p>
+                        </article>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ===== MY SKILLS ===== -->
+        <section class="section" id="skills">
+            <div class="container">
+
+                <h2 class="section-title">My Skills</h2>
+                <hr class="heading-line">
+                <p class="section-subtitle">
+                    The technical abilities and personal qualities
+                    I am developing.
+                </p>
+
+                <div class="skills-grid">
+
+                    <div class="content-card">
+                        <h3>Technical Skills</h3>
+
+                        <p class="muted">
+                            As a BSIT student, I am continuously learning
+                            and improving my technical skills. I enjoy
+                            exploring technology, writing code, and
+                            creating simple projects.
+                        </p>
+
+                        <br>
+
+                        <div class="skill-item">
+                            <strong>01. HTML</strong>
+                            <p>
+                                Creating and organizing webpage structures.
+                            </p>
+                        </div>
+
+                        <div class="skill-item">
+                            <strong>02. Basic Programming</strong>
+                            <p>
+                                Learning programming logic and
+                                problem-solving.
+                            </p>
+                        </div>
+
+                        <div class="skill-item">
+                            <strong>03. Figma</strong>
+                            <p>
+                                Designing website and mobile app prototypes.
+                            </p>
+                        </div>
+
+                        <div class="skill-item">
+                            <strong>04. Computer Skills</strong>
+                            <p>
+                                Using computer applications and digital tools.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="content-card">
+                        <h3>Soft Skills</h3>
+
+                        <p class="muted">
+                            I value teamwork, communication, creativity,
+                            time management, and problem-solving. I am
+                            always willing to learn new things and
+                            improve myself.
+                        </p>
+
+                        <br>
+
+                        <div class="soft-skills">
+                            <span>Communication</span>
+                            <span>Teamwork</span>
+                            <span>Creativity</span>
+                            <span>Time Management</span>
+                            <span>Problem-Solving</span>
+                            <span>Adaptability</span>
+                            <span>Critical Thinking</span>
+                            <span>Leadership</span>
+                            <span>Basic Programming</span>
+                            <span>Layout Design</span>
+                            <span>Stress Management</span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ===== MY PROJECTS ===== -->
+        <section class="section" id="projects">
+            <div class="container">
+                
+                
+                <h2 class="section-title">My Projects</h2>
+                <hr class="heading-line">
+                <p class="section-subtitle">
+                    Some of my academic activities and projects.
+                </p>
+
+                <div class="projects-grid">
+
+                    <article class="project-card">
+                        <span class="number">01.</span>
+                        <p class="project-category">WEB DEVELOPMENT</p>
+
+                        <h3>Personal Portfolio Website</h3>
+
+                        <p>
+                            A personal website created using HTML and CSS
+                            to introduce myself, share my skills, present
+                            my projects, and provide contact information.
+                        </p>
+
+                        <p><strong>Technologies:</strong> HTML, CSS, JavaScript</p>
+                    </article>
+
+                    <article class="project-card">
+                        <span class="number">02.</span>
+                        <p class="project-category">UI/UX DESIGN</p>
+
+                        <h3>Student Information System</h3>
+
+                        <p>
+                            A mobile application prototype designed in
+                            Figma to help students access academic
+                            information, check schedules, and receive
+                            school announcements.
+                        </p>
+
+                        <p><strong>Tool:</strong> Figma</p>
+                    </article>
+
+                    <article class="project-card">
+                        <span class="number">03.</span>
+                        <p class="project-category">HTML PRACTICE</p>
+
+                        <h3>Class Schedule Table</h3>
+
+                        <p>
+                            A class schedule webpage created using HTML
+                            tables to organize subjects, days, and
+                            class times.
+                        </p>
+
+                        <p><strong>Technology:</strong> HTML</p>
+                    </article>
+
+                    <article class="project-card">
+                        <span class="number">04.</span>
+                        <p class="project-category">MOBILE APP PROTOTYPE</p>
+
+                        <h3>Find My Classroom</h3>
+
+                        <p>
+                            A mobile application concept designed to help
+                            students locate their classrooms using a
+                            map and room information.
+                        </p>
+
+                        <p><strong>Tool:</strong> Figma</p>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+
+
+<!-- ===== ACHIEVEMENTS AND AWARDS ===== -->
+<section class="section" id="achievements">
+    <div class="container">
+        <h2 class="section-title">Achievements &amp; Awards</h2>
+        <hr class="heading-line">
+        <p class="section-subtitle">
+            Recognizing my accomplishments, learning journey, and milestones as a BSIT student.
+        </p>
+
+        <div class="achievements-grid">
+            <article class="achievement-card">
+                <span class="achievement-number">01 / ACHIEVEMENT</span>
+                <!-- Add your photo to the image folder and name it achievement1.jpg -->
+                <img class="achievement-photo" src="image/HonorAward1.jpg" alt="Photo of my academic achievement" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                <div class="achievement-photo-placeholder" style="display:none;">Add your photo here:<br>image/achievement1.jpg</div>
+                <h3>With Honors</h3>
+                <p>Graduated with honors from my Senior High School, demonstrating exceptional academic performance.</p>
+                <span class="achievement-tag">ACADEMICS</span>
+            </article>
+
+            <article class="achievement-card">
+                <span class="achievement-number">02 / ACHIEVEMENT</span>
+                <!-- Add your photo to the image folder and name it achievement2.jpg -->
+                <img class="achievement-photo" src="image/BestinUI&UX.jpg" alt="Photo of my web development achievement" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                <div class="achievement-photo-placeholder" style="display:none;">Add your photo here:<br>image/achievement2.jpg</div>
+                <h3>Best in UI/UX Design</h3>
+                <p>Recognized for outstanding design and user experience in web development projects.</p>
+                <span class="achievement-tag">WEB DEVELOPMENT</span>
+            </article>
+
+</section>
+
+<!-- ===== CONTACT SECTION ===== -->
+<section id="contact" class="contact-section">
+
+    <div class="contact-container">
+
+        <!-- HEADING -->
+        <div class="contact-heading">
+            <h2>Contact</h2>
+        </div>
+
+        <hr class="heading-line">
+
+        <div class="contact-layout">
+
+            <!-- LEFT COLUMN -->
+            <div class="contact-left">
+
+                <p class="contact-intro">
+                    Feel free to reach out — whether it's about
+                    collaboration, opportunities, or just a friendly
+                    hello. I'd love to connect!
+                </p>
+
+                <!-- CONTACT INFORMATION CARD -->
+                <div class="contact-card">
+
+                    <div class="contact-row">
+                        <div class="contact-icon">✉</div>
+                        <div>
+                            <span class="contact-label">EMAIL</span>
+                            <a href="mailto:reymarkcomighod51@gmail.com">
+                                reymarkcomighod51@gmail.com
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="contact-row">
+                        <div class="contact-icon">f</div>
+                        <div>
+                            <span class="contact-label">FACEBOOK</span>
+                            <a href="https://www.facebook.com/"
+                               target="_blank"
+                               rel="noopener noreferrer">
+                                Reymark Comighod
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="contact-row">
+                        <div class="contact-icon">⌘</div>
+                        <div>
+                            <span class="contact-label">GITHUB</span>
+                            <a href="https://github.com/reymarkcomighod51"
+                               target="_blank"
+                               rel="noopener noreferrer">
+                                reymarkcomighod51
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="contact-row">
+                        <div class="contact-icon">⌖</div>
+                        <div>
+                            <span class="contact-label">LOCATION</span>
+                            <p>Panabo City, Philippines</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- RIGHT COLUMN -->
+            <div class="contact-right">
+
+                <h3>
+                    Your suggestions and feedbacks will help me to improve.
+                </h3>
+
+                <form action="mailto:reymarkcomighod51@gmail.com"
+                      method="post"
+                      enctype="text/plain">
+
+                    <label for="contact-name">NAME</label>
+                    <input type="text"
+                           id="contact-name"
+                           name="Name"
+                           placeholder="Your name"
+                           required>
+
+                    <label for="contact-email">EMAIL</label>
+                    <input type="email"
+                           id="contact-email"
+                           name="Email"
+                           placeholder="your@email.com"
+                           required>
+
+                    <label for="contact-message">MESSAGE</label>
+                    <textarea id="contact-message"
+                              name="Message"
+                              placeholder="Say hello..."
+                              rows="5"
+                              required></textarea>
+
+                    <button type="submit" class="send-button">
+                        SEND MESSAGE <span>→</span>
+                    </button>
+
+                </form>
+
+            </div>
+
+        </div>
+    </div>
+
+</section>
+
+<!-- ===== CONTACT DESIGN ===== -->
+<style>
+    .contact-section {
+        padding: 65px 0;
+        color: var(--text, #eeeeee);
+        background: transparent;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .contact-container {
+        width: 90%;
+        max-width: 1100px;
+        margin: 0 auto;
+    }
+
+    .contact-heading {
+        display: flex;
+        align-items: center;
+        gap: 22px;
+        margin-bottom: 20px;
+    }
+
+    .section-number {
+        color: #35313a;
+        font-size: 12px;
+        letter-spacing: 2px;
+    }
+
+    .contact-heading h2 {
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: 40px;
+        font-weight: 700;
+        margin: 0;
+    }
+
+    .heading-line {
+        border: none;
+        border-top: 1px solid var(--border, #333333);
+        margin-bottom: 40px;
+    }
+
+    .contact-layout {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 50px;
+        align-items: start;
+    }
+
+    .contact-intro {
+        color: var(--muted, #aaaaaa);
+        font-size: 16px;
+        line-height: 1.9;
+        margin: 0 0 28px;
+    }
+
+    .contact-card {
+        border: 1px solid var(--border, #35313a);
+        border-radius: 22px;
+        overflow: hidden;
+        background: var(--card, #1c1a20);
+    }
+
+    .contact-row {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        padding: 16px 18px;
+        min-height: 74px;
+        border-bottom: 1px solid var(--border, #35313a);
+    }
+
+    .contact-row:last-child {
+        border-bottom: none;
+    }
+
+    .contact-icon {
+        width: 36px;
+        height: 36px;
+        flex-shrink: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid var(--border, #35313a);
+        border-radius: 5px;
+        font-size: 19px;
+    }
+
+    .contact-label {
+        display: block;
+        color: var(--muted, #99909f);
+        font-size: 10px;
+        letter-spacing: 1.5px;
+        margin-bottom: 5px;
+    }
+
+    .contact-row a,
+    .contact-row p {
+        font-size: 14px;
+        font-weight: 600;
+        overflow-wrap: anywhere;
+        margin: 0;
+    }
+
+    .contact-row a {
+        color: var(--text, #eeeeee);
+        text-decoration: none;
+    }
+
+    .contact-row a:hover {
+        color: #35313a;
+    }
+
+    .contact-right h3 {
+        font-size: 16px;
+        line-height: 1.7;
+        margin: 7px 0 22px;
+    }
+
+    .contact-right form {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .contact-right label {
+        font-size: 10px;
+        letter-spacing: 1.5px;
+        color: var(--muted, #99909f);
+        margin-bottom: 9px;
+    }
+
+    .contact-right input,
+    .contact-right textarea {
+        width: 100%;
+        box-sizing: border-box;
+        background: var(--card, #1c1a20);
+        color: var(--text, #eeeeee);
+        border: 1px solid var(--border, #35313a);
+        padding: 14px 16px;
+        font-family: inherit;
+        font-size: 14px;
+        margin-bottom: 18px;
+        border-radius: 0;
+    }
+
+    .contact-right input {
+        height: 48px;
+    }
+
+    .contact-right textarea {
+        min-height: 110px;
+        resize: vertical;
+    }
+
+    .contact-right input:focus,
+    .contact-right textarea:focus {
+        outline: 1px solid #35313a;
+        border-color: #35313a;
+    }
+
+    .send-button {
+        align-self: flex-start;
+        background: #35313a;
+        color: #ffffff;
+        border: none;
+        padding: 14px 25px;
+        min-width: 178px;
+        cursor: pointer;
+        font-size: 10px;
+        font-weight: bold;
+        letter-spacing: 1.5px;
+        transition: background 0.2s, transform 0.2s;
+    }
+
+    .send-button span {
+        margin-left: 8px;
+    }
+
+    .send-button:hover {
+        background: #35313a;
+        transform: translateY(-2px);
+    }
+
+    /* MOBILE RESPONSIVE */
+    @media (max-width: 750px) {
+        .contact-layout {
+            grid-template-columns: 1fr;
+            gap: 35px;
+        }
+
+        .contact-heading h2 {
+            font-size: 32px;
+        }
+
+        .contact-section {
+            padding: 40px 0;
+        }
+    }
+</style>
+
+<!-- RESUME IMAGE POPUP: put your resume image in the image folder and name it resume.jpg -->
+<div id="resumeModal"
+     style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.9); text-align:center; overflow:auto; z-index:9999; box-sizing:border-box;">
+
+    <!-- CLOSE BUTTON -->
+    <button type="button"
+            aria-label="Close resume"
+            onclick="document.getElementById('resumeModal').style.display='none';"
+            onclick="document.getElementById('resumeModal').style.display='none';"
+            style="position:fixed; top:28px; right: 32%; font-size:30px; cursor:pointer; border:none; border-radius:none; width:45px; height:45px; background:none; color:rgb(255, 255, 255); z-index:10001;">
+        &times;
+    </button>
+
+    <!-- RESUME IMAGE -->
+    <img src="image/Resume.png"
+         alt="My Resume"
+         style="max-width:90%; max-height:85vh; width:auto; height:auto; margin-top:60px; object-fit:contain; background:white;">
+</div>
+
+
+
+<script>
+  // Working dark/light mode toggle
+  const themeToggle = document.getElementById("themeToggle");
+  const themeIcon = themeToggle.querySelector(".theme-icon");
+
+  function setTheme(isDark) {
+    document.body.classList.toggle("dark-mode", isDark);
+    themeIcon.textContent = isDark ? "☀️" : "🌙";
+    themeToggle.setAttribute(
+      "aria-label",
+      isDark ? "Switch to light mode" : "Switch to dark mode"
+    );
+    themeToggle.setAttribute(
+      "title",
+      isDark ? "Switch to light mode" : "Switch to dark mode"
+    );
+  }
+
+  // Start in light mode, then remember the user's choice during this browser session.
+  let isDarkMode = false;
+  setTheme(isDarkMode);
+
+  themeToggle.addEventListener("click", () => {
+    isDarkMode = !document.body.classList.contains("dark-mode");
+    setTheme(isDarkMode);
+  });
+</script>
+
+</body>
+</html>
